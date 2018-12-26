@@ -37,14 +37,14 @@ userCommand(userInput, userQuery);
 function concertThis() {
 console.log(`/n - - - - - /n/nSEARCING FOR...${userQuery}'s next show...`);
 request("https://rest.bandsintown.com/artists/" + userQuery + "/events?app_id=codingbootcamp" + bandsintown +
-response, body) {
+response, body); {
     if(!error && response.statusCode === 200) {
         let userBand = JSON.parse(body);
         if(userBand.length > 0){
             for(i = 0; i < 1; i++){
                 // log data
                 console.log(`/nArtist: ${userBand[i].lineup[0]} /nVenue: ${userBand[i]
-                    .venue.name}/nVenue Location: ${userBand[i].venue.latitude},${userBand[i].venue.longitude}/nVenue
+                    .venue.name}/nVenue Location: ${userBand[i].venue.latitude},${userBand[i].venue.longitude}/nVenue:
                     City: ${userBand[i].venue.city}`)
                     // Format moment.js MM/DD/YYYY
                     let concertDate = moment(userBand[i].datetime).format("MM/DD/YYYY");
@@ -55,4 +55,56 @@ response, body) {
         }
     }
 }
+}
+
+function spotifyThisSong() {
+    console.log(`/n - - - - - /n/nSEARCHING FOR ..."${userQuery}"`);
+    if(!userQuery) { 
+        userQuery = "the sign ace of base"};
+    spotify.search({ type: "track", query: userQuery, limit: 1}, function(error, data) {
+        if(error) {
+            console.log("Error occured: " + error);
+        }
+        let spotifyArr = dara.tracks.items;
+
+        for(i = 0; i < spotifyArr.length; i++) {
+            console.log(`/n/nArtist: ${data.tracks.items[i].album.artists[0].name}
+            /nSong: ${data.tracks.items[i].name}/nSpotify link: ${data.tracks.items[i].exturnal_urls.spotify}
+            /nAlbums: ${data.tracks.items[i].album.name}/n/n - - - - - `)
+             
+        }
+    })
+}
+
+function movieThis(){
+    console.log(`/n - - - - - /n/nSEARCHING FOR ..."${userQuery}"`);
+    if(!userQuery) { 
+        userQuery = "Mr nobody"; }; 
+        request("http://www.omdbapi.com/?t=" + userQuery + "&apikey=trilogy", function(error, response){
+            let userMovie = JSON.parse(body);
+
+            let ratingsArr = userMovie.Ratings;
+            if(ratingsArr.length > 2) {
+            }
+
+            if(!error && response.statusCode === 200) {
+                console.log(`/n/nTitle: ${userMovie.Title}/nCast: ${userMovie.Actors}
+                /nRealesed: ${userMovie.Year}/nIMDB Rating: ${userMovie.imdbRating}/nRotten Tomatoes: ${userMovie.Ratings[1].value}
+                /nCountry: ${userMovie.Country}/nLanguage: ${userMovie.Language}/nPlot: ${userMovie.Plot}/n/n - - - - - `)
+            }else {
+                console.log("Movie not found: " + error);
+            }
+        })
+}
+
+function doThis() {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if(error) { return console.log(error);}
+
+        let dataArr = data.split(",");
+        userInput = dataArr[0];
+        userQuery = dataArr[1];
+
+        userCommand(userInput, userQuery);
+    })
 }
