@@ -4,7 +4,6 @@ var bandsintown = (keys.bandsintown);
 var request = require('request');
 var Spotify = require('node-spotify-api');
 var fs = require('fs');
-var spotify = new Spotify(keys.spotify);
 var input = process.argv;
 var action = input[2];
 var inputs = input[3];
@@ -49,7 +48,7 @@ function spotify(inputs) {
 
 function movie(inputs) {
 
-	var queryUrl = "http://www.omdbapi.com/?t=" + inputs + "&y=&plot=short&apikey=40e9cece";
+	var queryUrl = "http://www.omdbapi.com/?t=" + inputs + "&y=&plot=short&apikey=trilogy";
 
 	request(queryUrl, function(error, response, body) {
 		if (!inputs){
@@ -69,3 +68,28 @@ function movie(inputs) {
 	});
 };
 
+function doit() {
+	fs.readFile('random.txt', "utf8", function(error, data){
+
+		if (error) {
+    		return console.log(error);
+  		}
+
+		// Then split it by commas (to make it more readable)
+		var dataArr = data.split(",");
+
+		// Because of the format in the txt file, remove the quotes to run these commands. 
+		if (dataArr[0] === "spotify-this-song") {
+			var songcheck = dataArr[1].slice(1, -1);
+			spotify(songcheck);
+		} else if (dataArr[0] === "concert-this") {
+			var bandname = dataArr[1].slice(1, -1);
+			concert(bandname);
+		} else if(dataArr[0] === "movie-this") {
+			var movie_name = dataArr[1].slice(1, -1);
+			movie(movie_name);
+		} 
+		
+  	});
+
+};
