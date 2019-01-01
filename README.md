@@ -1,5 +1,8 @@
 # liri-node-app
 
+# Here is a link to watch a demo of the app.
+https://drive.google.com/file/d/12VKDAoXaaqPswzfJ5LLjIZGBmK0nqpqn/view
+
 # About liri app
 LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
