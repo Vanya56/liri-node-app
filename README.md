@@ -34,15 +34,6 @@ This will output the following information to your terminal/bash window:
 * Rotten Tomatoes URL.
 * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
-# Bands in town
-`node liri.js concert-this <artist/band name here>`
-* This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
-
-     * Name of the venue
-
-     * Venue location
-
-     * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 # Do What It Says
 `node liri.js do-what-it-says`
