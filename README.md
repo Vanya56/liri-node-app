@@ -1,27 +1,19 @@
-# liri-node-app
+# LIRI
 
-# Here is a link to watch a demo of the app.
-https://drive.google.com/file/d/12VKDAoXaaqPswzfJ5LLjIZGBmK0nqpqn/view
+## Summary
+Liri is a command line application written in NodeJS. It can be used to search for information about movies and songs/albums. Liri uses NodeJS, Moment, Axios, Node-Spotify-API, and OMDB API. Liri logs all previously inputed commands in the log.txt file.
 
-# About liri app
-LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
+### Watch a demo [Here!]()
 
-# What each command does
-Spotify
-`node liri.js spotify-this-song <insert song title>`
+![pic](img/img-1.png)
+
+## Usage
+While in the directory of liri.js, use the command line to type a search term such as:
+```
+node liri.js movie-this <insert movie title>
+```
 
 This will show the following information about the song in your terminal/bash window
-
-* Artist(s)
-* The song's name
-* A preview link of the song from Spotify
-* The album that the song is from
-* If no song is provided then your program will default to "The Sign" by Ace of Base
-
-# Movies
-`node liri.js movie-this <insert movie title>`
-
-This will output the following information to your terminal/bash window:
 
 * Title of the movie.
 * Year the movie came out.
@@ -34,18 +26,24 @@ This will output the following information to your terminal/bash window:
 * Rotten Tomatoes URL.
 * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
+```
+node liri.js spotify-this-song <insert song title>
+```
+* Artist(s)
+* The song's name
+* A preview link of the song from Spotify
+* The album that the song is from
+* If no song is provided then your program will default to "The Sign" by Ace of Base
 
-# Do What It Says
-`node liri.js do-what-it-says`
-
-Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+```
+node liri.js do-what-it-says
+```
 
 * It will run spotify-this-song for "I Want it That Way,".
 
-Feel free to change the text in that document to test out the feature for other commands.
 
-Author
-Vanya Levchenko
 
-License
-MIT License
+
+
+
+

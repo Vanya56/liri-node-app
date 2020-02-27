@@ -1,20 +1,14 @@
 // require("dotenv").config();
 var keys = require("./keys.js");
-var bandsintown = (keys.bandsintown);
 var request = require('request');
 var Spotify = require('node-spotify-api');
-// var axios = require('axios');
-// var moment = require('moment.js')
+
 var fs = require('fs');
 var input = process.argv;
 var action = input[2];
 var inputs = input[3];
 
 switch (action) {
-	case "concert-this":
-		concert(inputs);
-		break;
-
 	case "spotify-this-song":
 		spotify(inputs);
 		break;
